@@ -20,10 +20,14 @@ const userMap = {
 export default {
   loginByUsername: config => {
     const { username } = JSON.parse(config.body)
+    console.log('loginByUsername', userMap[username])
     return userMap[username]
   },
   getUserInfo: config => {
     const { token } = param2Obj(config.url)
+    console.log(token)
+    console.log(config.url)
+    console.log('getUserInfo', userMap[token])
     if (userMap[token]) {
       return userMap[token]
     } else {
