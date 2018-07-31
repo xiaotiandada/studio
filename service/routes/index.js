@@ -1,3 +1,6 @@
+const AuthenticationControlles = require('../controllers/controllers')
+
+
 module.exports = (app) => {
 
   const data = {
@@ -17,11 +20,11 @@ module.exports = (app) => {
       }
   }
 
-  app.post('/api/adminlogin', function (req, res) {
-    console.log(req.body.username)
-      const username = req.body.username
-      res.send( data[username])
-  })
+  // app.post('/api/adminlogin', function (req, res) {
+  //   console.log(req.body.username)
+  //     const username = req.body.username
+  //     res.send( data[username])
+  // })
 
     app.get('/api/userinfo', function (req, res) {
       console.log(req.url)
@@ -45,4 +48,7 @@ module.exports = (app) => {
         }
 
     })
+
+    app.post('/api/adminlogin',AuthenticationControlles.userAdminLogin)
+    app.post('/test',AuthenticationControlles.userAdminLogin )
 }

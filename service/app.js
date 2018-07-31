@@ -1,14 +1,16 @@
-var createError = require('http-errors');
-var express = require('express');
-var bodyParser = require('body-parser');
+const createError = require('http-errors');
+const express = require('express');
+const bodyParser = require('body-parser');
+
 const cors = require('cors')   // 跨域
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
+// const mongodb = require('./model/userAdmin')
 
+const app = express();
 
-var app = express();
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
