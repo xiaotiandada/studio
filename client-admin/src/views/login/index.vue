@@ -142,9 +142,19 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  /*修复input 背景不协调*/
+  /*修复input 背景不协调 和光标变色*/
 $bg:#283443;
 $light_gray:#eee;
+$cursor: #fff;
+
+  @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
+    .login-container .el-input input{
+      color: $cursor;
+      &::first-line {
+        color: $light_gray;
+      }
+    }
+  }
 
 /* reset element-ui css */
 .login-container {
@@ -160,9 +170,10 @@ $light_gray:#eee;
       padding: 12px 5px 12px 15px;
       color: $light_gray;
       height: 47px;
+      caret-color: $cursor;
       &:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: #fff !important;
+        -webkit-text-fill-color: $cursor !important;
       }
     }
   }
